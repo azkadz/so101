@@ -1,0 +1,10 @@
+# Calibration for the friend's SO-101 pair (Nov 2026). Zero = L pose = MJCF zero.
+leader_node:
+  ros__parameters:
+    zero_ticks: [1929, 2014, 2015, 2100, 2069]
+follower_node:
+  ros__parameters:
+    port: /dev/ttyACM1
+    zero_ticks: [1982, 2012, 2016, 2017, 2107]
+    tick_limits: [846, 3328, 944, 3089, 981, 2978, 983, 3075, 1061, 3867, 1600, 3000]
+    grip_ticks: [1600, 3000]
