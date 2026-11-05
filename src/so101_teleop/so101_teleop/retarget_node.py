@@ -1,4 +1,5 @@
 import os
+from ament_index_python.packages import get_package_share_directory
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
@@ -14,7 +15,7 @@ class RetargetNode(Node):
         super().__init__("retarget_node")
         p = lambda n, v: self.declare_parameter(n, v).value
         xml = p("so101_xml", os.path.expanduser(
-            "~/wsp/playground/SO-ARM100/Simulation/SO101/so101_new_calib.xml"))
+            os.path.join(get_package_share_directory("so101_teleop"), "models", "so101", "so101_new_calib.xml")))
         self.rt = SO101Retarget(xml, p("sign", [1.0] * 5), p("offset", [0.0] * 5),
                                 p("scale", 2.0), p("track_orientation", True))
         self.viewer = None

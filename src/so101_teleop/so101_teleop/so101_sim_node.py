@@ -1,5 +1,6 @@
 """Simulated SO-101 follower: leader joints -> identical MJCF joints, 1:1 (same kinematics, no IK)."""
 import os
+from ament_index_python.packages import get_package_share_directory
 import mujoco
 import mujoco.viewer
 import numpy as np
@@ -16,7 +17,7 @@ class SO101Sim(Node):
     def __init__(self):
         super().__init__("so101_sim_node")
         p = lambda n, v: self.declare_parameter(n, v).value
-        path = p("model_path", os.path.expanduser("~/wsp/playground/SO-ARM100/Simulation/SO101/pick_place.xml"))
+        path = p("model_path", os.path.expanduser(os.path.join(get_package_share_directory("so101_teleop"), "models", "so101", "pick_place.xml")))
         self.sign = np.array(p("sign", [1.0] * 5))
         self.offset = np.array(p("offset", [0.0, 0.0, 0.0, 1.571, 0.0]))
         self.m = load_model(path)

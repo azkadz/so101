@@ -9,7 +9,7 @@ from so101_teleop.so101_scene import load_model
 import so101_teleop.cube_rush as cr
 
 XML = sys.argv[1] if len(sys.argv) > 1 else os.path.expanduser(
-    "~/wsp/playground/SO-ARM100/Simulation/SO101/pick_place.xml")
+    os.path.join(os.path.dirname(__file__), "..", "models", "so101", "pick_place.xml"))
 ARM = ["shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex", "wrist_roll"]
 OPEN, CLOSED = 1.2, -0.17
 
