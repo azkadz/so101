@@ -1,0 +1,6 @@
+retarget_node:
+  ros__parameters:
+    sign: [1.0, 1.0, 1.0, 1.0, 1.0]
+    offset: [0.0, 0.0, 0.0, 1.571, 0.0]
+    scale: 2.0
+    track_orientation: false
