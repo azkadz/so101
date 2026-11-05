@@ -38,6 +38,7 @@ setup(
         'latency = so101_teleop.latency:main',
         'so101_sim_node = so101_teleop.so101_sim_node:main',
         'cube_rush_node = so101_teleop.cube_rush_node:main',
+        'follower_node = so101_teleop.follower_node:main',
         ],
     },
 )
