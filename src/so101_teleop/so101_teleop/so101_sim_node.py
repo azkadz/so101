@@ -19,7 +19,7 @@ class SO101Sim(Node):
         p = lambda n, v: self.declare_parameter(n, v).value
         path = p("model_path", os.path.expanduser(os.path.join(get_package_share_directory("so101_teleop"), "models", "so101", "pick_place.xml")))
         self.sign = np.array(p("sign", [1.0] * 5))
-        self.offset = np.array(p("offset", [0.0, 0.0, 0.0, 1.571, 0.0]))
+        self.offset = np.array(p("offset", [0.0] * 5))
         self.m = load_model(path)
         self.d = mujoco.MjData(self.m)
         self.qadr = [self.m.joint(n).qposadr[0] for n in ARM + ["gripper"]]
