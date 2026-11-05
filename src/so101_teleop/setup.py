@@ -1,4 +1,5 @@
 from setuptools import find_packages, setup
+from glob import glob
 
 package_name = 'so101_teleop'
 
@@ -6,10 +7,14 @@ setup(
     name=package_name,
     version='0.0.0',
     packages=find_packages(exclude=['test']),
-    data_files=[
+     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/models/so101',
+            glob('models/so101/*.xml') + ['models/so101/LICENSE']),
+        ('share/' + package_name + '/models/so101/assets',
+            glob('models/so101/assets/*.stl')),
     ],
     package_data={'': ['py.typed']},
     install_requires=['setuptools'],
