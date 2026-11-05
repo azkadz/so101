@@ -13,6 +13,8 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/models/so101',
             glob('models/so101/*.xml') + ['models/so101/LICENSE']),
+        ('share/' + package_name + '/launch', glob('launch/*.launch.py')),
+        ('share/' + package_name + '/config', glob('config/*.yaml')),
         ('share/' + package_name + '/models/so101/assets',
             glob('models/so101/assets/*.stl')),
     ],
